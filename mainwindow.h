@@ -28,6 +28,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+    void paintEvent(QPaintEvent *);
 };
 
 #endif // MAINWINDOW_H

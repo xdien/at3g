@@ -23,7 +23,6 @@ QStringList cofig_mode::avalible_port()
     for (int i=0; i< list.size(); i++)
     {
         portsName.append(list.at(i).canonicalFilePath ());
-        //portsName.prepend(list.at(i).canonicalFilePath());
     }
     return portsName;
 }
@@ -47,6 +46,7 @@ QString cofig_mode::send_atComm(QString at)
             if(serial.waitForReadyRead(500))
             {
                  res = QString(serial.readAll());
+                //qDebug() << serial.readAll();
             }
         }
         serial.close();
@@ -62,5 +62,5 @@ QString cofig_mode::send_atComm(QString at)
 }
 bool cofig_mode::check_correctPort()
 {
-    serial.isRequestToSend()
+    serial.isRequestToSend();
 }

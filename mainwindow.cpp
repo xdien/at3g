@@ -8,16 +8,23 @@
 #include <QtSerialPort/QSerialPortInfo>
 #include <QDebug>
 #include <QDir>
+#include "stdio.h"
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    cofig_mode itmq;
+    ui->cbb_dev->clear();//lam trong truoc khi them items
+    ui->cbb_dev->addItems(itmq.avalible_port());
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+void MainWindow::paintEvent(QPaintEvent *)
+{
 }
 
 void MainWindow::on_commit_2g_clicked()
@@ -32,9 +39,9 @@ void MainWindow::on_commit_2g_clicked()
 
 void MainWindow::on_add_i_clicked()
 {
-    cofig_mode itm;
+    cofig_mode itmq;
     ui->cbb_dev->clear();//lam trong truoc khi them items
-    ui->cbb_dev->addItems(itm.avalible_port());
+    ui->cbb_dev->addItems(itmq.avalible_port());
 }
 
 
@@ -47,5 +54,10 @@ void MainWindow::on_pushButton_clicked()
 
 void MainWindow::on_pushButton_2_clicked()
 {
-
+    cofig_mode moi;
+    QString value;
+    moi.port_name = ui->cbb_dev->currentText();
+    value = moi.send_atComm("AT!GETRAT\?");
+    value.trimmed();
+        ui->label->setText(value.mid(11,4));
 }
