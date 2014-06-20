@@ -6,8 +6,9 @@ chương trình hỗ trợ chuyển đổi 2g/3g(edge/umts) một số thiết b
 -Thiết bị được hỗ trợ
 	
 	+sierra wireless 885
+	-E173u-1 thất bại(tự ngắt kết nối)
 -Cài đặt
-*yêu cầu phải có plugins qtserialport
+*yêu cầu phải có plugins qtserialport cho QT
 
 	qmake .
 	make
@@ -18,4 +19,4 @@ chương trình hỗ trợ chuyển đổi 2g/3g(edge/umts) một số thiết b
 
 -Đang làm
 
-+Hỗ trợ thêm e173u-1 viettel
++Hỗ trợ thêm mf190 
